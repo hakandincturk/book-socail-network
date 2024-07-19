@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:15432/book_social_network
+    username: hkn
+    password: 123456
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    databese: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+    host: 127.0.0.1
+    port: 1025
+    username: hkn
+    password: 123456
+    properties:
+      mail:
+        smtp:
+          trust: "*"
+        auth: true
+        starttls:
+          enable: true
+        connectiontimeout: 5000
+        timeout: 3000
+        writetimeout: 5000
+        
+application:
+  security:
+    jwt:
+      secret-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4Kw55BwZOeJxmXDpjW503+Wml1bq643KqZ1HgFGpsfuNiMMR9WMe3H4a5UuyxyehgTwl2kfgICc5AJvfX2p6wmzoUUjaW3OEFcfnM3iaNtPeRpSZ9DB9Dq3mmmf6oT5DWpMeGxuQo5NipwDBHsncukQWJlSEJ/kKnaU3wuUzp7cE77gbbn2ZICR+aVZlLdtWX7T5vN6e7iyhp2jeKThDZqyXHWGN51aZuXdD58RwvgnmIAF7hV+zEBMlGnckgr7qFY1xnxPrKp0EMp1oMYcdWLPCWtPV6OsQ0vt4bWp8qR2f0FmX0okQ5jnfICTJ0ZDMNw1UyJcEBaHRh6lOEDegHQIDAQAB
+      expiration-time: 86400000
+  mailing:
+    activation-url: http://127.0.0.1:8080/activate-account
