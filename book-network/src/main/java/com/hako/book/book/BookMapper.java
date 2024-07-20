@@ -2,6 +2,8 @@ package com.hako.book.book;
 
 import java.util.function.Function;
 
+import com.hako.book.history.BookTransactionHistory;
+
 public class BookMapper {
 
   public BookResponse toBookResponse(Book book){
@@ -27,6 +29,18 @@ public class BookMapper {
       .synopsis(request.synopsis())
       .archived(false)
       .shareable(request.shareable())
+      .build();
+  }
+
+  public BorrowedBookResponse toBorrowedBookResponse(BookTransactionHistory bookTransactionHistory) {
+    return BorrowedBookResponse.builder()
+      .id(bookTransactionHistory.getBook().getId())
+      .title(bookTransactionHistory.getBook().getTitle())
+      .authorName(bookTransactionHistory.getBook().getAuthorName())
+      .isbn(bookTransactionHistory.getBook().getIsbn())
+      .rate(bookTransactionHistory.getBook().getRate())
+      .returned(bookTransactionHistory.isReturned())
+      .returnApproved(bookTransactionHistory.isReturnApproved())
       .build();
   }
 }
