@@ -1,13 +1,11 @@
 package com.hako.book.book;
 
-import java.util.function.Function;
-
 import com.hako.book.history.BookTransactionHistory;
 
 public class BookMapper {
 
   public BookResponse toBookResponse(Book book){
-    return Book.builder()
+    return BookResponse.builder()
       .id(book.getId())
       .title(book.getTitle())
       .authorName(book.getAuthorName())
