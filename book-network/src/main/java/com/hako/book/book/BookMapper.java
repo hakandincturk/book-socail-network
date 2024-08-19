@@ -1,7 +1,11 @@
 package com.hako.book.book;
 
+import org.springframework.stereotype.Service;
+
+import com.hako.book.file.FileUtils;
 import com.hako.book.history.BookTransactionHistory;
 
+@Service
 public class BookMapper {
 
   public BookResponse toBookResponse(Book book){
@@ -15,6 +19,7 @@ public class BookMapper {
       .archived(book.isArchived())
       .shareable(book.isShareable())
       .owner(book.getOwner().getFullName())
+      .cover(FileUtils.readFileFromLocaltion(book.getBookCover()))
       .build();
   };
 

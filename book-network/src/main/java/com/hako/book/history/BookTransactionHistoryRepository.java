@@ -7,8 +7,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.hako.book.book.Book;
-import com.hako.book.user.User;
 
 public interface BookTransactionHistoryRepository extends JpaRepository<BookTransactionHistory, Integer> {
 
@@ -24,7 +22,7 @@ public interface BookTransactionHistoryRepository extends JpaRepository<BookTran
     FROM BookTransactionHistory history
     WHERE history.book.owner.id = :userId
   """)
-  Page<BookTransactionHistory> findAllReturnedBooks(Pageable pageable, Integer id);
+  Page<BookTransactionHistory> findAllReturnedBooks(Pageable pageable, Integer userId);
 
   @Query("""
     SELECT history
